@@ -1,3 +1,4 @@
 # Ignore all tpm managed plugins
-
 plugins/
+
+profiles.yaml

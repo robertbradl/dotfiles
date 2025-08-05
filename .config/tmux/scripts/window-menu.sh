@@ -13,9 +13,16 @@ command -v yq >/dev/null || {
 }
 
 # Parse config and present fzf
-selection=$(yq -o=json '.[]' $CONFIG |
-  jq -rc '. as $item | "\($item.label) [\($item.user)@\($item.host)]:::\($item.window):::\($item.user):::\($item.host):::\($item.key // "")"' |
-  fzf --prompt "Choose profile: " --delimiter ":::" --preview='echo -e "Window: {2}\nHost: {3}\nUser: {4}\nKey: {5}"')
+selection=$(
+  yq -o=json '.[]' $CONFIG |
+    jq -rc '. as $item | "\($item.label) [\($item.user)@\($item.host)]:::\($item.window):::\($item.user):::\($item.host):::\($item.key // "")"' |
+    fzf --prompt "Choose profile: " \
+      --delimiter ":::" \
+      --preview='echo -e "Window: {2}\nHost: {3}\nUser: {4}\nKey: {5}"' \
+      --color dark \
+      --border="rounded" \
+      --border-label="Select Server"
+)
 
 # Bail
 [ -z "$selection" ] && exit 0

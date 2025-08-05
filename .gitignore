@@ -1,4 +1,4 @@
 # Ignore all tpm managed plugins
-plugins/
+home/dot_config/tmux/plugins/
 
 profiles.yaml

@@ -12,5 +12,10 @@ bind --preset \cC cancel-commandline
 
 alias vim="nvim"
 alias python="python3"
+alias cat="bat"
+alias z="zoxide"
+
 set -gx VISUAL vim
 set -gx EDITOR vim
+
+zoxide init fish | source

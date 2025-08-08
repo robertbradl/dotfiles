@@ -19,3 +19,4 @@ set -gx VISUAL vim
 set -gx EDITOR vim
 
 zoxide init fish | source
+rvm default

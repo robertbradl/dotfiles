@@ -10,6 +10,7 @@ local icons = {
 		clipboard = "􀉄",
 		calendar = "􀉉",
 		clock = "􀐬",
+		terminal = "􀪏",
 
 		switch = {
 			on = "􁏮",

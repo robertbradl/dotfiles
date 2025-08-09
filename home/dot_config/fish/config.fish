@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 function fish_greeting
-    echo "Welcome Robert!"
+    echo " - Welcome Robert!"
 end
 
 eval "$(/opt/homebrew/bin/brew shellenv)"

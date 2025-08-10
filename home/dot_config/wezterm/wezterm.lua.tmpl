@@ -32,17 +32,18 @@ return {
 			action = wezterm.action.OpenLinkAtMouseCursor,
 		},
 	},
-  {{ if eq .chezmoi.hostname "iMac" }}
-    wezterm.on("gui-startup", fuction(cmd)
-    local screen = wezterm.gui.screens().dell
-    local ratio = 0.8
-    local menu_bar_offset = 40
-    local width, height = screen.width * ratio, screen.height * ratio
-    local tab, pane, window = wezterm.mux.spawn_window(cmd or {
-      
-    })
-  )
-  {{ else }}
+  {{- if eq .chezmoi.hostname "iMac" }}
+	  wezterm.on("gui-startup", function(cmd)
+	  	local screen = wezterm.gui.screens().by_name["DELL S2725DS"]
+	  	local ratio = 0.9
+	  	local width, height = screen.width * ratio, screen.height * ratio
+	  	local tab, pane, window = wezterm.mux.spawn_window(cmd or {
+	  		position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 },
+	  	})
+	  	-- window:gui_window():maximize()
+	  	window:gui_window():set_inner_size(width, height)
+	  end),
+  {{- else }}
 	  wezterm.on("gui-startup", function(cmd)
 	  	local screen = wezterm.gui.screens().main
 	  	local ratio = 0.9
@@ -54,5 +55,5 @@ return {
 	  	-- window:gui_window():maximize()
 	  	window:gui_window():set_inner_size(width, height)
 	  end),
-  {{ end }}
+  {{- end }}
 }

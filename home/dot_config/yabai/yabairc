@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+yabai -m config layout bsp \
+  external_bar all:40:0 \
+  top_padding 10 \
+  bottom_padding 15 \
+  left_padding 15 \
+  right_padding 15 \
+  window_gap 10 \
+  mouse_follows_focus on

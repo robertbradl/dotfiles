@@ -6,5 +6,4 @@ sbar.bar({
 	color = colors.bar.bg,
 	padding_right = 3,
 	padding_left = 3,
-	display = 1,
 })

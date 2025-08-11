@@ -4,14 +4,17 @@
 
 ## Requirements
 
-- brew
-- fish
-- Some Nerd Font
+- Some Nerd Font (JetBrainsMono Nerd Font Mono recommended)
 - nvim
 - WezTerm
 - Sketchybar
-- TMUX
-- chezmoi
-- fzf
-- yq
--
+- Sketchybar App Font
+- JankyBorders
+- Yabai
+- tmux
+- SF Symbols
+- SF Pro Font
+- SF Mono Font
+
+... for a full list of dependencies, check the
+![install.sh](https://github.com/robertbradl/dotfiles/blob/main/install.sh) script.

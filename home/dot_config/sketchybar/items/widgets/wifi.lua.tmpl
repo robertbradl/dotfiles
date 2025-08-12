@@ -2,13 +2,16 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 
+local network_interface = "en0"
+
+{{- if eq .chezmoi.hostname "iMac" }}
+network_interface = "en1"
+{{- else }}
+network_interface = "en0"
+{{- end }}
 -- Execute the event provider binary which provides the event "network_update"
 -- for the network interface "en0", which is fired every 2.0 seconds.
-{{- if eq .chezmoi.hostname "iMac" }}
-sbar.exec("killall network_load >/dev/null; $CONFIG_DIR/helpers/event_providers/network_load/bin/network_load en1 network_update 2.0")
-{{- else }}
-sbar.exec("killall network_load >/dev/null; $CONFIG_DIR/helpers/event_providers/network_load/bin/network_load en0 network_update 2.0")
-{{- end }}
+sbar.exec(string.format("killall network_load >/dev/null; $CONFIG_DIR/helpers/event_providers/network_load/bin/network_load %s network_update 2.0", network_interface))
 
 local popup_width = 250
 
@@ -178,8 +181,7 @@ wifi_up:subscribe("network_update", function(env)
 end)
 
 wifi:subscribe({"wifi_change", "system_woke"}, function(env)
-  {{- if eq .chezmoi.hostname "iMac" }}
-    sbar.exec("ipconfig getifaddr en1", function(ip)
+    sbar.exec(string.format("ipconfig getifaddr %s", network_interface), function(ip)
       local connected = not (ip == "")
       wifi:set({
         icon = {
@@ -188,17 +190,6 @@ wifi:subscribe({"wifi_change", "system_woke"}, function(env)
         },
       })
     end)
-  {{- else }}
-    sbar.exec("ipconfig getifaddr en0", function(ip)
-      local connected = not (ip == "")
-      wifi:set({
-        icon = {
-          string = connected and icons.wifi.connected or icons.wifi.disconnected,
-          color = connected and colors.white or colors.red,
-        },
-      })
-    end)
-  {{- end }}
 end)
 
 local function hide_details()
@@ -212,18 +203,10 @@ local function toggle_details()
     sbar.exec("networksetup -getcomputername", function(result)
       hostname:set({ label = result })
     end)
-  {{- if eq .chezmoi.hostname "iMac" }}
-    sbar.exec("ipconfig getifaddr en1", function(result)
-  {{- else }}
-    sbar.exec("ipconfig getifaddr en0", function(result)
-  {{- end }}
+    sbar.exec(string.format("ipconfig getifaddr %s", network_interface), function(result)
       ip:set({ label = result })
     end)
-  {{- if eq .chezmoi.hostname "iMac" }}
-    sbar.exec("ipconfig getsummary en1 | awk -F ' SSID : '  '/ SSID : / {print $2}'", function(result)
-  {{- else }}
-    sbar.exec("ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'", function(result)
-  {{- end }}
+    sbar.exec(string.format("ipconfig getsummary %s | awk -F ' SSID : '  '/ SSID : / {print $2}'", network_interface), function(result)
       ssid:set({ label = result })
     end)
     sbar.exec("networksetup -getinfo Wi-Fi | awk -F 'Subnet mask: ' '/^Subnet mask: / {print $2}'", function(result)

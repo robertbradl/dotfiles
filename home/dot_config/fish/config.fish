@@ -14,6 +14,7 @@ alias vim="nvim"
 alias python="python3"
 alias cat="bat"
 alias z="zoxide"
+alias ls="eza --icons=always"
 
 set -gx VISUAL vim
 set -gx EDITOR vim

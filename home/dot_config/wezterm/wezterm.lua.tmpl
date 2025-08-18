@@ -3,7 +3,11 @@ return {
 	adjust_window_size_when_changing_font_size = false,
 	color_scheme = "Gruvbox dark, hard (base16)",
 	enable_tab_bar = false,
+  {{- if eq .chezmoi.hostname "iMac" }}
+    font_size = 18.0,
+  {{- else }}
 	font_size = 14.0,
+  {{- end }}
 	initial_rows = 40,
 	initial_cols = 150,
 	font = wezterm.font("JetBrainsMono Nerd Font Mono"),
@@ -17,11 +21,6 @@ return {
 			key = "q",
 			mods = "CTRL",
 			action = wezterm.action.ToggleFullScreen,
-		},
-		{
-			key = "'",
-			mods = "CTRL",
-			action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
 		},
 	},
 	mouse_bindings = {

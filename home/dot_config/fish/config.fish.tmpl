@@ -16,6 +16,16 @@ alias cat="bat"
 alias z="zoxide"
 alias ls="eza --icons=always"
 
+{{ if eq .colorScheme "Rose Pine" }}
+fish_config theme choose "Rosé Pine Moon"
+{{ else if eq .colorScheme "Ayu" }}
+fish_config theme choose "ayu Mirage"
+{{ else if eq .colorScheme "Catppuccin" }}
+fish_config theme choose "Catppuccin Mocha"
+{{ else }}
+fish_config theme choose Lava
+{{ end }}
+
 set -gx VISUAL vim
 set -gx EDITOR vim
 

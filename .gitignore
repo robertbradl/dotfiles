@@ -1,4 +1,11 @@
 # Ignore all tpm managed plugins
 home/dot_config/tmux/plugins/
+home/dot_config/fish/completions/
+home/dot_config/fish/conf.d/
+home/dot_config/fish/functions/
+home/dot_config/fish/themes/
+home/dot_config/fish/fish_plugins
+home/dot_config/fish/fish_variables
+
 
 profiles.yaml

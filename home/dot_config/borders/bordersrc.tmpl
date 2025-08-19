@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+{{- if eq .colorScheme "Rose Pine" }}
+options=(
+  style=rounded
+  width=8.0
+  hidpi=off
+  active_color=0xff56526e
+  inactive_color=0xff282828
+)
+{{- else }}
+options=(
+  style=rounded
+  width=8.0
+  hidpi=off
+  active_color=0xff8ec07c
+  inactive_color=0xff282828
+)
+{{- end }}
+borders "${options[@]}"

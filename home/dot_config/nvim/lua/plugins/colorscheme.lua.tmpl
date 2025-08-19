@@ -1,0 +1,62 @@
+{{- if eq .colorScheme "Rose Pine" }}
+  return {
+    {
+      "rose-pine/neovim",
+      name = "rose-pine",
+      config = function()
+          require("rose-pine").setup({
+            variant = "moon",
+            enable = {
+              terminal = true,
+            },
+            styles = {
+              transparency = true,
+            }
+        })
+      end,
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "rose-pine",
+      },
+    },
+  }
+{{- else if eq .colorScheme "Ayu" }}
+  return {
+    {
+      "Shatur/neovim-ayu",
+      name = "ayu",
+      config = function()
+        require("ayu").setup({
+          mirage = true,
+          })
+        end,
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "ayu",
+      },
+    },
+  }
+{{- else }}
+  return {
+    {
+      "ellisonleao/gruvbox.nvim",
+      name = "gruvbox",
+      priority = 1000,
+      config = function()
+        require("gruvbox").setup({
+          transparent_mode = true,
+        })
+      end,
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "gruvbox",
+      },
+    },
+  }
+{{- end }}

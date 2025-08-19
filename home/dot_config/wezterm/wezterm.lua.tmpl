@@ -1,13 +1,16 @@
 local wezterm = require("wezterm")
 return {
 	adjust_window_size_when_changing_font_size = false,
-	color_scheme = "Gruvbox dark, hard (base16)",
-	enable_tab_bar = false,
-  {{- if eq .chezmoi.hostname "iMac" }}
-    font_size = 18.0,
+  {{- if eq .colorScheme "Rose Pine" }}
+    color_scheme = "rose-pine-moon",
+  {{- else if eq .colorScheme "Ayu" }}
+    color_scheme = "Ayu Mirage",
+  {{- else if eq .colorScheme "Catppuccin" -}}
+    color_scheme = "Catppuccin Mocha",
   {{- else }}
-	font_size = 14.0,
+	  color_scheme = "Gruvbox dark, hard (base16)",
   {{- end }}
+	enable_tab_bar = false,
 	initial_rows = 40,
 	initial_cols = 150,
 	font = wezterm.font("JetBrainsMono Nerd Font Mono"),
@@ -32,6 +35,7 @@ return {
 		},
 	},
   {{- if eq .chezmoi.hostname "iMac" }}
+    font_size = 18.0,
 	  wezterm.on("gui-startup", function(cmd)
 	  	local screen = wezterm.gui.screens().by_name["DELL S2725DS"]
 	  	local ratio = 0.9
@@ -39,19 +43,17 @@ return {
 	  	local tab, pane, window = wezterm.mux.spawn_window(cmd or {
 	  		position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 },
 	  	})
-	  	-- window:gui_window():maximize()
 	  	window:gui_window():set_inner_size(width, height)
 	  end),
   {{- else }}
+    font_size = 14.0,
 	  wezterm.on("gui-startup", function(cmd)
 	  	local screen = wezterm.gui.screens().main
 	  	local ratio = 0.9
-	  	local menu_bar_offset = 34 -- Adjust as needed
 	  	local width, height = screen.width * ratio, screen.height * ratio
 	  	local tab, pane, window = wezterm.mux.spawn_window(cmd or {
-	  		position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 + menu_bar_offset },
+	  		position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 },
 	  	})
-	  	-- window:gui_window():maximize()
 	  	window:gui_window():set_inner_size(width, height)
 	  end),
   {{- end }}

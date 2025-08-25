@@ -40,7 +40,7 @@
       },
     },
   }
-{{- else }}
+{{- else -}}
   return {
     {
       "ellisonleao/gruvbox.nvim",
@@ -49,6 +49,18 @@
       config = function()
         require("gruvbox").setup({
           transparent_mode = true,
+          terminal_colors =  true,
+          bold = true,
+          italic = {
+            strings = true,
+            emphasis = true,
+            comments = true,
+            operators = false,
+            folds = true,
+          },
+          strikethrough = true,
+          undercurl = true,
+          underline = true,
         })
       end,
     },

@@ -2,7 +2,11 @@
 {{- if eq .colorScheme "Rose Pine" }}
 options=(
   style=rounded
+  {{- if eq .chezmoi.hostname "iMac" }}
   width=8.0
+  {{- else }}
+  width=6.0
+  {{- end }}
   hidpi=off
   active_color=0xff56526e
   inactive_color=0xff282828
@@ -10,10 +14,14 @@ options=(
 {{- else }}
 options=(
   style=rounded
+  {{- if eq .chezmoi.hostname "iMac" }}
   width=8.0
+  {{- else }}
+  width=4.0
+  {{- end }}
   hidpi=off
-  active_color=0xff8ec07c
-  inactive_color=0xff282828
+  active_color=0xff928375
+  inactive_color=0xff3c3836
 )
 {{- end }}
 borders "${options[@]}"

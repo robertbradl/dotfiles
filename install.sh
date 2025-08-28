@@ -38,12 +38,21 @@ brew install bat
 brew install fish
 brew install htop
 brew install gnupg
+brew install yazi
+brew install ffmpeg
+brew install sevenzip
+brew install poppler
+brew install fd
+brew install resvg
+brew install imagemagick
+brew install font-symbols-only-nerd-font
 
 ## Casks
 
 brew install --cask sf-symbols
 brew install --cask font-sf-pro
 brew install --cask font-sf-mono
+brew install --cask font-geist-mono-nerd-font
 brew install --cask wezterm
 
 # Sketchybar App Font

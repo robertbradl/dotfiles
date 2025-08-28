@@ -12,7 +12,7 @@ personal config, check out his dotfiles here: [FelixKratz/dotfiles](https://gith
 
 ## Requirements
 
-- Some Nerd Font (default is GeistMono)
+- Some Nerd Font (default is GeistMono, recommend patched JuliaMono)
 - nvim
 - WezTerm
 - Sketchybar

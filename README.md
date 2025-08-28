@@ -1,8 +1,10 @@
 # dotfiles
 
+I am using chezmoi's template functionality to generate certain configurations
+based on the hostname, so I can fine tune the settings for all my devices.
+
 The Sketchybar config is a customized version of FelixKratz'
-personal config, check out his dotfiles here:
-![Static Badge](https://img.shields.io/badge/FelixKratz%20-%20dotfiles%20-%20?style=for-the-badge&logo=github&color=cyan&link=https%3A%2F%2Fgithub.com%2FFelixKratz%2Fdotfiles%2F)
+personal config, check out his dotfiles here: [FelixKratz/dotfiles](https://github.com/FelixKratz/dotfiles).
 
 ## Preview
 

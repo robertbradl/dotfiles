@@ -15,9 +15,9 @@ alias python="python3"
 alias cat="bat"
 alias z="zoxide"
 alias ls="eza --icons=always"
-alias aerc="aerc -A ~/.config/aerc/accounts.conf"
 alias finder="open -a Finder ."
-
+alias aerc="aerc -C ~/.config/aerc/aerc.conf -A ~/.config/aerc/accounts.conf -B ~/.config/aerc/binds.conf"
+ 
 {{ if eq .colorScheme "Rose Pine" }}
 fish_config theme choose "Rosé Pine Moon"
 {{ else if eq .colorScheme "Ayu" }}

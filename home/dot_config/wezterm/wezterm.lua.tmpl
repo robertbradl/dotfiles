@@ -10,11 +10,25 @@ return {
   {{ else }}
 	  color_scheme = "Gruvbox dark, hard (base16)",
   {{ end }}
+	font_rules = {
+		{
+			intensity = 'Bold',
+			italic = false,
+			font = wezterm.font('Julia Mono Nerd', 
+				{ weight = "Black" }),
+		},
+		{
+			intensity = 'Bold',
+			italic = true,
+			font = wezterm.font('Julia Mono Nerd', 
+				{ weight = "Black", italic = true }),
+		}
+	},
 	enable_tab_bar = false,
 	initial_rows = 40,
 	initial_cols = 150,
 	font = wezterm.font("Julia Mono Nerd"),
-  line_height = 1.1,
+  	line_height = 1.1,
 	audible_bell = "Disabled",
 	macos_window_background_blur = 30,
 

@@ -1,0 +1,29 @@
+# Base styling
+*.selected.bold=true
+*.selected.bg=#458588
+
+# Message list
+msglist_unread.bold=true
+msglist_flagged.bold=true
+msglist_deleted.bold=true
+msglist_marked.bold=true
+msglist_pill.fg=#928374
+
+# Status bar
+statusline_*.bold=true
+
+# Completion
+
+# Scrollbars
+
+# Border
+
+# Tab
+tab.selected.bold=true
+
+[viewer]
+url.underline=true
+header.bold=true
+signature.dim=true
+diff_meta.bold=true
+diff_chunk_func.bold=true

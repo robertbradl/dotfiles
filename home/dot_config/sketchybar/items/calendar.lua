@@ -26,7 +26,7 @@ local cal = sbar.add("item", {
 		color = colors.bg1,
 		border_color = colors.bg2,
 	},
-	click_script = "open -a 'Calendar'",
+	click_script = "open -a 'Notion Calendar'",
 })
 
 -- Padding item required because of bracket

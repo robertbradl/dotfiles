@@ -6,12 +6,12 @@ function fish_greeting
     echo " - Welcome Robert!"
 end
 
+eval "$(pyenv init -)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 bind --preset \cC cancel-commandline
 
 alias vim="nvim"
-alias python="python3"
 alias cat="bat"
 alias z="zoxide"
 alias ls="eza --icons=always"
@@ -30,6 +30,7 @@ fish_config theme choose Lava
 
 set -gx VISUAL nvim
 set -gx EDITOR nvim
+set -gx FZF_DEFAULT_OPTS '--style full --color=fg:#ebdbb2,hl:#b16286 --color=fg+:#689d6a,hl+:#d3869b --color=info:#d65d0e,prompt:#458588,pointer:#fe8019 --color=marker:#8ec07c,spinner:#cc241d,header:#fabd2f'
 
 zoxide init fish | source
 rvm default

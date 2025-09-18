@@ -1,0 +1,16 @@
+font-family = "Julia Mono Nerd"
+font-size = 13
+adjust-cell-height = 15%
+theme = Gruvbox Dark Hard
+macos-window-shadow = false
+window-show-tab-bar = never
+background-opacity = 0.85
+background-blur = 15
+macos-titlebar-style = hidden
+window-padding-x = 10
+window-padding-y = 10
+mouse-hide-while-typing = true
+font-style-bold = Black
+font-style-bold-italic = Black Italic
+keybind = global:cmd+^=toggle_quick_terminal
+macos-icon = xray

@@ -20,7 +20,7 @@ local term = sbar.add("item", {
 	position = "right",
 	padding_left = 1,
 	padding_right = 1,
-	click_script = "open -a 'WezTerm'",
+	click_script = "open -a 'Ghostty'",
 })
 
 sbar.add("bracket", { term.name }, {

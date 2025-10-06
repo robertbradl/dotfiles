@@ -1,13 +1,12 @@
 set -g prefix C-s
-set -g default-terminal 'screen-256color'
-set-option -g terminal-overrides ',xterm-256color:RGB'
+set -g default-terminal "tmux-256color"
+set -as terminal-overrides ',xterm-256color:RGB,tmux-256color:RGB'
 
 # Global settings
 set -g base-index 1
 set -g renumber-windows on
 set -g set-clipboard on
 set -g status-position top
-set -g default-terminal "${TERM}"
 set -g mode-keys vi
 
 # List of plugins

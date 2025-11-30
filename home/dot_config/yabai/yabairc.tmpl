@@ -4,11 +4,11 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Signal$" manage=off
 yabai -m rule --add app="^Notion Calendar$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^UTM$" manage=off
 yabai -m rule --add app"^WezTerm$" display=^1
 
 {{- if eq .chezmoi.hostname "iMac" }}
 yabai -m config layout bsp \
-  external_bar all:40:0 \
   top_padding 10 \
   bottom_padding 15 \
   left_padding 15 \
@@ -17,7 +17,6 @@ yabai -m config layout bsp \
 
 {{- else }}
 yabai -m config layout bsp \
-  external_bar all:40:0 \
   top_padding 5 \
   bottom_padding 10 \
   left_padding 10 \
